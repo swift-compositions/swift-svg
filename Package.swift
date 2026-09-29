@@ -17,7 +17,7 @@ let package = Package(
     dependencies: [
         .package(url: "https://github.com/swift-compositions/swift-svg-render.git", branch: "main"),
         .package(
-            url: "https://github.com/swift-molecules/swift-dimension.git",
+            url: "https://github.com/swift-atoms/swift-spatial.git",
             branch: "main"
         ),
     ],
@@ -33,8 +33,8 @@ let package = Package(
             dependencies: [
                 .target(name: "SVG"),
                 .product(
-                    name: "Dimension Test Support",
-                    package: "swift-dimension"
+                    name: "Spatial Test Support",
+                    package: "swift-spatial"
                 ),
             ],
 
