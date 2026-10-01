@@ -1,4 +1,4 @@
-import Spatial_Test_Support
+import Space_Test_Support
 import SVG
 import Testing
 

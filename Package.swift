@@ -33,7 +33,7 @@ let package = Package(
             dependencies: [
                 .target(name: "SVG"),
                 .product(
-                    name: "Spatial Test Support",
+                    name: "Space Test Support",
                     package: "swift-spatial"
                 ),
             ],

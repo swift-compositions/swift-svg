@@ -24,7 +24,7 @@ let package = Package(
                 .product(name: "Testing", package: "swift-test-application"),
                 .product(name: "SVG Rendering", package: "swift-svg-render"),
                 .product(
-                    name: "Spatial Test Support",
+                    name: "Space Test Support",
                     package: "swift-spatial"
                 ),
             ],
