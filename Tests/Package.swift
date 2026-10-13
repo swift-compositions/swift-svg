@@ -21,7 +21,7 @@ let package = Package(
             name: "SVG Test Support",
             dependencies: [
                 .product(name: "SVG", package: "swift-svg"),
-                .product(name: "Testing", package: "swift-test-application"),
+                .product(name: "Test Application", package: "swift-test-application"),
                 .product(name: "SVG Rendering", package: "swift-svg-render"),
                 .product(
                     name: "Space Test Support",
@@ -34,7 +34,7 @@ let package = Package(
             name: "SVG Snapshot Tests",
             dependencies: [
                 "SVG Test Support",
-                .product(name: "Testing", package: "swift-test-application"),
+                .product(name: "Test Application", package: "swift-test-application"),
             ],
             path: "SVG Snapshot Tests"
         ),
