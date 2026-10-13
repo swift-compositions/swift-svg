@@ -1,5 +1,5 @@
 public import SVG_Rendering
-import Test_Snapshot_Primitives
+public import Test
 
 extension Test.Snapshot.Strategy where Value: SVG.View, Format == String {
     public static var svg: Self {

@@ -11,6 +11,7 @@ let package = Package(
         .package(path: ".."),
         .package(url: "https://github.com/swift-compositions/swift-test-application.git", branch: "main"),
         .package(url: "https://github.com/swift-compositions/swift-svg-render.git", branch: "main"),
+        .package(url: "https://github.com/swift-molecules/swift-test.git", branch: "main"),
         .package(
             url: "https://github.com/swift-atoms/swift-spatial.git",
             branch: "main"
@@ -23,6 +24,7 @@ let package = Package(
                 .product(name: "SVG", package: "swift-svg"),
                 .product(name: "Test Application", package: "swift-test-application"),
                 .product(name: "SVG Rendering", package: "swift-svg-render"),
+                .product(name: "Test", package: "swift-test"),
                 .product(
                     name: "Space Test Support",
                     package: "swift-spatial"
