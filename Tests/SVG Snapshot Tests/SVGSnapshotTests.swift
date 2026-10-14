@@ -1,4 +1,5 @@
 import SVG_Test_Support
+import Tests_Inline_Snapshot
 
 @Suite
 struct `SVG Snapshot Tests` {
