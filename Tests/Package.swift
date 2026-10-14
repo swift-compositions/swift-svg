@@ -12,6 +12,7 @@ let package = Package(
         .package(url: "https://github.com/swift-compositions/swift-test-application.git", branch: "main"),
         .package(url: "https://github.com/swift-compositions/swift-svg-render.git", branch: "main"),
         .package(url: "https://github.com/swift-molecules/swift-test.git", branch: "main"),
+        .package(url: "https://github.com/swift-compositions/swift-tests.git", branch: "main"),
         .package(
             url: "https://github.com/swift-atoms/swift-spatial.git",
             branch: "main"
@@ -37,6 +38,7 @@ let package = Package(
             dependencies: [
                 "SVG Test Support",
                 .product(name: "Test Application", package: "swift-test-application"),
+                .product(name: "Tests Inline Snapshot", package: "swift-tests"),
             ],
             path: "SVG Snapshot Tests"
         ),
