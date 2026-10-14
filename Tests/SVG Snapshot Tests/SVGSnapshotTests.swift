@@ -6,15 +6,14 @@ struct `SVG Snapshot Tests` {
 
     @Test
     func `Circle element snapshot`() {
-        snapshot(
+        snapshot(as: .svg) {
             testSVG(width: 100, height: 100) {
                 circle(cx: 50, cy: 50, r: 40)
                     .fill("red")
                     .stroke("black")
                     .strokeWidth(2)
-            },
-            as: .svg
-        ) {
+            }
+        } matches: {
             """
             <svg height="100" width="100">
               <circle stroke-width="2" stroke="black" fill="red" r="40" cy="50" cx="50">
@@ -26,16 +25,15 @@ struct `SVG Snapshot Tests` {
 
     @Test
     func `Rectangle element snapshot`() {
-        snapshot(
+        snapshot(as: .svg) {
             testSVG(width: 120, height: 80) {
                 rect(x: 10, y: 10, width: 100, height: 60)
                     .rx(5 as Double)
                     .ry(5 as Double)
                     .fill("blue")
                     .opacity(0.7)
-            },
-            as: .svg
-        ) {
+            }
+        } matches: {
             """
             <svg height="80" width="120">
               <rect opacity="0.7" fill="blue" ry="5" rx="5" height="60" width="100" y="10" x="10">
@@ -47,15 +45,14 @@ struct `SVG Snapshot Tests` {
 
     @Test
     func `Ellipse element snapshot`() {
-        snapshot(
+        snapshot(as: .svg) {
             testSVG(width: 200, height: 100) {
                 ellipse(cx: 100, cy: 50, rx: 80, ry: 40)
                     .fill("green")
                     .strokeWidth(3)
                     .stroke("purple")
-            },
-            as: .svg
-        ) {
+            }
+        } matches: {
             """
             <svg height="100" width="200">
               <ellipse stroke="purple" stroke-width="3" fill="green" ry="40" rx="80" cy="50" cx="100">
@@ -67,15 +64,14 @@ struct `SVG Snapshot Tests` {
 
     @Test
     func `Line element snapshot`() {
-        snapshot(
+        snapshot(as: .svg) {
             testSVG(width: 200, height: 200) {
                 line(x1: 10, y1: 10, x2: 190, y2: 190)
                     .stroke("red")
                     .strokeWidth(2)
                     .strokeDasharray("5 5")
-            },
-            as: .svg
-        ) {
+            }
+        } matches: {
             """
             <svg height="200" width="200">
               <line stroke-dasharray="5 5" stroke-width="2" stroke="red" y2="190" x2="190" y1="10" x1="10">
@@ -87,15 +83,14 @@ struct `SVG Snapshot Tests` {
 
     @Test
     func `Polygon element snapshot`() {
-        snapshot(
+        snapshot(as: .svg) {
             testSVG(width: 200, height: 200) {
                 polygon(coordinates: [(100, 10), (40, 198), (190, 78), (10, 78), (160, 198)])
                     .fill("lime")
                     .stroke("purple")
                     .strokeWidth(1)
-            },
-            as: .svg
-        ) {
+            }
+        } matches: {
             """
             <svg height="200" width="200">
               <polygon stroke-width="1" stroke="purple" fill="lime" points="100,10 40,198 190,78 10,78 160,198">
@@ -107,15 +102,14 @@ struct `SVG Snapshot Tests` {
 
     @Test
     func `Polyline element snapshot`() {
-        snapshot(
+        snapshot(as: .svg) {
             testSVG(width: 200, height: 200) {
                 polyline(points: "20,20 40,25 60,40 80,120 120,140 200,180")
                     .fill("none")
                     .stroke("black")
                     .strokeWidth(3)
-            },
-            as: .svg
-        ) {
+            }
+        } matches: {
             """
             <svg height="200" width="200">
               <polyline stroke-width="3" stroke="black" fill="none" points="20,20 40,25 60,40 80,120 120,140 200,180">
@@ -127,14 +121,13 @@ struct `SVG Snapshot Tests` {
 
     @Test
     func `Path element snapshot`() {
-        snapshot(
+        snapshot(as: .svg) {
             testSVG(width: 200, height: 200) {
                 path(d: "M 10 10 L 90 10 L 50 80 Z")
                     .fill("orange")
                     .stroke("black")
-            },
-            as: .svg
-        ) {
+            }
+        } matches: {
             """
             <svg height="200" width="200">
               <path stroke="black" fill="orange" d="M 10 10 L 90 10 L 50 80 Z">
@@ -146,7 +139,7 @@ struct `SVG Snapshot Tests` {
 
     @Test
     func `Group element snapshot`() {
-        snapshot(
+        snapshot(as: .svg) {
             testSVG(width: 200, height: 200) {
                 g {
                     circle(cx: 50, cy: 50, r: 30)
@@ -156,9 +149,8 @@ struct `SVG Snapshot Tests` {
                         .fill("red")
                         .opacity(0.5)
                 }
-            },
-            as: .svg
-        ) {
+            }
+        } matches: {
             """
             <svg height="200" width="200">
               <g>
@@ -174,7 +166,7 @@ struct `SVG Snapshot Tests` {
 
     @Test
     func `Nested groups snapshot`() {
-        snapshot(
+        snapshot(as: .svg) {
             testSVG(width: 300, height: 200) {
                 g {
                     g {
@@ -191,9 +183,8 @@ struct `SVG Snapshot Tests` {
                     }
                     .transform("rotate(45)")
                 }
-            },
-            as: .svg
-        ) {
+            }
+        } matches: {
             """
             <svg height="200" width="300">
               <g>
@@ -215,7 +206,7 @@ struct `SVG Snapshot Tests` {
 
     @Test
     func `Text element snapshot`() {
-        snapshot(
+        snapshot(as: .svg) {
             testSVG(width: 300, height: 100) {
                 text(x: 10, y: 30) {
                     "Hello, SVG!"
@@ -223,9 +214,8 @@ struct `SVG Snapshot Tests` {
                 .fontFamily("Arial")
                 .fontSize(24)
                 .fill("black")
-            },
-            as: .svg
-        ) {
+            }
+        } matches: {
             """
             <svg height="100" width="300">
               <text fill="black" font-size="24" font-family="Arial" y="30" x="10">Hello, SVG!
@@ -237,7 +227,7 @@ struct `SVG Snapshot Tests` {
 
     @Test
     func `Text with tspan snapshot`() {
-        snapshot(
+        snapshot(as: .svg) {
             testSVG(width: 300, height: 100) {
                 text(x: 10, y: 30) {
                     tspan { "First line" }
@@ -251,9 +241,8 @@ struct `SVG Snapshot Tests` {
                     .fontWeight("bold")
                 }
                 .fontSize(16)
-            },
-            as: .svg
-        ) {
+            }
+        } matches: {
             """
             <svg height="100" width="300">
               <text font-size="16" y="30" x="10">
@@ -271,7 +260,7 @@ struct `SVG Snapshot Tests` {
 
     @Test
     func `Linear gradient snapshot`() {
-        snapshot(
+        snapshot(as: .svg) {
             testSVG(width: 200, height: 100) {
                 defs {
                     linearGradient(
@@ -288,9 +277,8 @@ struct `SVG Snapshot Tests` {
 
                 rect(x: 10, y: 10, width: 180, height: 80)
                     .fill("url(#grad1)")
-            },
-            as: .svg
-        ) {
+            }
+        } matches: {
             """
             <svg height="100" width="200">
               <defs>
@@ -310,7 +298,7 @@ struct `SVG Snapshot Tests` {
 
     @Test
     func `Radial gradient snapshot`() {
-        snapshot(
+        snapshot(as: .svg) {
             testSVG(width: 200, height: 200) {
                 defs {
                     radialGradient(
@@ -326,9 +314,8 @@ struct `SVG Snapshot Tests` {
 
                 circle(cx: 100, cy: 100, r: 80)
                     .fill("url(#grad2)")
-            },
-            as: .svg
-        ) {
+            }
+        } matches: {
             """
             <svg height="200" width="200">
               <defs>
@@ -348,14 +335,13 @@ struct `SVG Snapshot Tests` {
 
     @Test
     func `Transform combinations snapshot`() {
-        snapshot(
+        snapshot(as: .svg) {
             testSVG(width: 300, height: 300) {
                 rect(x: 50, y: 50, width: 100, height: 100)
                     .fill("red")
                     .transform("translate(100, 100) rotate(45) scale(0.5, 0.5)")
-            },
-            as: .svg
-        ) {
+            }
+        } matches: {
             """
             <svg height="300" width="300">
               <rect transform="translate(100, 100) rotate(45) scale(0.5, 0.5)" fill="red" height="100" width="100" y="50" x="50">
@@ -367,7 +353,7 @@ struct `SVG Snapshot Tests` {
 
     @Test
     func `ClipPath snapshot`() {
-        snapshot(
+        snapshot(as: .svg) {
             testSVG(width: 200, height: 200) {
                 defs {
                     clipPath(id: "clip1") {
@@ -378,9 +364,8 @@ struct `SVG Snapshot Tests` {
                 rect(x: 0, y: 0, width: 200, height: 200)
                     .fill("blue")
                     .clipPath("url(#clip1)")
-            },
-            as: .svg
-        ) {
+            }
+        } matches: {
             """
             <svg height="200" width="200">
               <defs>
@@ -398,7 +383,7 @@ struct `SVG Snapshot Tests` {
 
     @Test
     func `Mask snapshot`() {
-        snapshot(
+        snapshot(as: .svg) {
             testSVG(width: 200, height: 200) {
                 defs {
                     mask(id: "mask1") {
@@ -412,9 +397,8 @@ struct `SVG Snapshot Tests` {
                 rect(x: 0, y: 0, width: 200, height: 200)
                     .fill("red")
                     .mask("url(#mask1)")
-            },
-            as: .svg
-        ) {
+            }
+        } matches: {
             """
             <svg height="200" width="200">
               <defs>
@@ -434,7 +418,7 @@ struct `SVG Snapshot Tests` {
 
     @Test
     func `Complex SVG composition snapshot`() {
-        snapshot(
+        snapshot(as: .svg) {
             testSVG(
                 width: 400,
                 height: 300,
@@ -471,9 +455,8 @@ struct `SVG Snapshot Tests` {
                 .fontSize(24)
                 .fill("white")
                 .textAnchor("middle")
-            },
-            as: .svg
-        ) {
+            }
+        } matches: {
             """
             <svg viewBox="0 0 400 300" height="300" width="400">
               <defs>
