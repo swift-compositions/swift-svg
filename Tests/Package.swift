@@ -18,7 +18,7 @@ let package = Package(
         .package(url: "https://github.com/swift-molecules/swift-test.git", branch: "main"),
         .package(url: "https://github.com/swift-compositions/swift-tests.git", branch: "main"),
         .package(
-            url: "https://github.com/swift-atoms/swift-spatial.git",
+            url: "https://github.com/swift-atoms/swift-space.git",
             branch: "main"
         ),
     ],
@@ -32,7 +32,7 @@ let package = Package(
                 .product(name: "Test", package: "swift-test"),
                 .product(
                     name: "Space Test Support",
-                    package: "swift-spatial"
+                    package: "swift-space"
                 ),
             ],
             path: "Support"
