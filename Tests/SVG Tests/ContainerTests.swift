@@ -1,3 +1,4 @@
+import RFC_3987
 import Space_Test_Support
 import SVG
 import Testing
@@ -81,7 +82,8 @@ struct `Container Elements Tests` {
     }
 
     @Test
-    func `Symbol and use elements render correctly`() {
+    func `Symbol and use elements render correctly`() throws {
+        let reference = try RFC_3987.IRI.Reference("#mySymbol")
         let svgElement = svg {
             defs {
                 symbol(
@@ -92,7 +94,7 @@ struct `Container Elements Tests` {
                         .fill("green")
                 }
             }
-            use(href: "#mySymbol", x: 10, y: 10, width: 100, height: 100)
+            use(href: reference, x: 10, y: 10, width: 100, height: 100)
         }
 
         let rendered = String(svgElement)
