@@ -38,7 +38,7 @@ let package = Package(
         .testTarget(
             name: "SVG Snapshot Tests",
             dependencies: [
-                "SVG Test Support",
+                .target(name: "SVG Test Support"),
                 .product(name: "Tests Inline Snapshot", package: "swift-tests"),
             ],
             path: "SVG Snapshot Tests"
