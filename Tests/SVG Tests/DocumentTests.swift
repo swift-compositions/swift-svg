@@ -1,5 +1,5 @@
-import Space_Test_Support
 import SVG
+import Space_Test_Support
 import Testing
 
 @Suite
@@ -53,5 +53,21 @@ struct `Document Tests` {
 
         let rendered = String(svgElement)
         #expect(!rendered.contains("\n"))
+    }
+
+    @Test
+    func `SVG document declares the SVG namespace on its outermost element`() {
+        let document = SVG.Document(svg(width: 100, height: 100)) {
+            g {
+                circle(cx: 50, cy: 50, r: 40)
+            }
+        }
+
+        let rendered = String(document)
+        #expect(rendered.hasPrefix("<svg"))
+        #expect(rendered.contains("xmlns=\"http://www.w3.org/2000/svg\""))
+        #expect(rendered.contains("width=\"100\""))
+        #expect(rendered.ranges(of: "xmlns=").count == 1)
+        #expect(rendered.hasSuffix("</svg>"))
     }
 }
