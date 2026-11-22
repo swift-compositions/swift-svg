@@ -83,7 +83,7 @@ struct `Container Elements Tests` {
 
     @Test
     func `Symbol and use elements render correctly`() throws {
-        let reference = try RFC_3987.IRI.Reference("#mySymbol")
+        let reference = try IETF.RFC.`3987`.IRI.Reference("#mySymbol")
         let svgElement = svg {
             defs {
                 symbol(
