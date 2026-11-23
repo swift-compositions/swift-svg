@@ -29,13 +29,13 @@ public typealias text = SVG_Standard::SVG_Standard.Text.Text
 
 public typealias tspan = SVG_Standard::SVG_Standard.Text.TSpan
 
-public typealias linearGradient = SVG_Standard::SVG_Standard.PaintServers.LinearGradient
+public typealias linearGradient = SVG_Standard::SVG_Standard.Paint.LinearGradient
 
-public typealias radialGradient = SVG_Standard::SVG_Standard.PaintServers.RadialGradient
+public typealias radialGradient = SVG_Standard::SVG_Standard.Paint.RadialGradient
 
-public typealias stop = SVG_Standard::SVG_Standard.PaintServers.Stop
+public typealias stop = SVG_Standard::SVG_Standard.Paint.Stop
 
-public typealias pattern = SVG_Standard::SVG_Standard.PaintServers.Pattern
+public typealias pattern = SVG_Standard::SVG_Standard.Paint.Pattern
 
 public typealias clipPath = SVG_Standard::SVG_Standard.Painting.ClipPath
 
